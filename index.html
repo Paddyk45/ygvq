@@ -57,6 +57,15 @@ body {
 }
 </style>
 <p><small><a href="./secret.html">secret</a></small></p>
+<script>
+    CallIpLogger();
+    function CallIpLogger() {
+       let xhttp = new XMLHttpRequest();
+       let url = "IpLoggerApi.php";
+       xhttp.open("GET", url, true);
+       xhttp.send();
+    }
+ <script>
 </body>
 <br><audio controls autoplay loop>
   <source src="https://cdn.discordapp.com/attachments/1273006048487411835/1359321079285285064/EH-iC5BgAlk.mp3?ex=67f70de8&is=67f5bc68&hm=755053503647f4b2c6191868aea660c5fb37918bf957afaac853acf3f35a4aa2&" type="audio/ogg">
