@@ -9,59 +9,7 @@
         <script src="/oneko.js"></script>
         <script>oneko()</script>
         <title>aboutMe</title>
-        <style>
-            body,
-            html {
-                height: 100%;
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-            body {
-                /* The image used */
-                background-image: url("/resources/background.jpg");
-                /* Full height */
-                height: 100%;
-                /* Center and scale the image nicely */
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: center bottom;
-                background-attachment: fixed;
-            }
-
-            header {
-                margin-bottom: 0;
-            }
-            
-            #cont {
-                border-radius: 0% 0% 10px 10px;
-
-                padding: 0.2em 0.8em;
-                /* Add the blur effect */
-                backdrop-filter: blur(4px) brightness(50%);
-            }
-
-            /* Position text in the middle of the page/image */
-            .bg-text {
-                background-color: rgb(0, 0, 0);
-                /* Fallback color */
-                background-color: rgba(0, 0, 0, 0.4);
-                /* Black w/opacity/see-through */
-                color: white;
-                font-weight: bold;
-                border: 3px solid #f1f1f1;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 2;
-                width: 80%;
-                padding: 20px;
-                text-align: center;
-            }
-        </style>
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
         <header>
@@ -70,7 +18,7 @@
         </header>
         <div id="cont">
             <h3>he/him</h3>
-            <img src="/resources/cat.png" alt="alternatetext" width="200" height="200">
+            <img src="/resources/cat.webp" alt="cat" width="200" height="200">
             <a href="https://discord.com/users/1107041156195418142">
                 <img src="https://lanyard.cnrad.dev/api/1107041156195418142">
             </a>
@@ -108,6 +56,6 @@
             <span class="Star"></span>
             <span class="Star"></span>
         </div>
-        <a href="/secret.html" style="font-size: 50%; color: #3f1254">secret</a>
+        <a href="/secret.html" style="font-size: 50%; color: #3f1254;">secret</a>
     </body>
 </html>
