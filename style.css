@@ -1,4 +1,4 @@
-body,
+
 html {
     height: 100%;
 }
@@ -10,13 +10,16 @@ html {
 body {
     /* The image used */
     background-image: url("/resources/background.webp");
-    height: 80%;
-    /* Center and scale the image nicely */
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-position: center center;
     background-attachment: fixed;
 }
+
+#textbox {
+
+}
+
 
 header {
     margin-bottom: 0;
