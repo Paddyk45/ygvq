@@ -234,16 +234,17 @@ a:hover {
 .about-image-topbar .close {
     position: absolute;
     display: flex;
-    margin-top: 4px;
-    margin-right: 4px;
+    margin-top: 21px;
+    margin-right: 5px;
 }
 
 .about-image-topbar .close:hover {
     border: 1px solid white;
-    margin: 3px 3px -1px;
+    margin-top: 20px;
+    margin-right: 4px;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 20000px) {
     .about-image-separate {
         display: none;
     }
@@ -870,51 +871,4 @@ section {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-}
-
-.popup-content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #090909;
-    border: 1px solid #fff;
-    padding: 10px;
-    text-align: center;
-    max-width: 500px;
-}
-
-.popup-content .close {
-    position: absolute;
-    top: 6px;
-    right: 10px;
-    cursor: pointer;
-}
-
-.popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 12px;
-}
-
-.qr-code {
-    width: 200px;
-    height: auto;
-    margin: 20px 0;
-}
-
-.crypto-address {
-    display: block;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    word-break: break-all;
-    font-size: 16px;
-}
-
-#show-btc:checked ~ #btc-popup,
-#show-xmr:checked ~ #xmr-popup {
-    display: block;
 }
