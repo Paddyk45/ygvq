@@ -20,7 +20,7 @@ body {
     font-size: 20px;
     line-height: 1.2;
     scrollbar-gutter: stable;
-    font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, "Courier New", monospace;
+    font-family: ComicMono;
 
     /* Center everything */
     display: flex;
@@ -86,14 +86,6 @@ a {
 a:hover {
     color: var(--links-hover);
 }
-
-#welcomeText {
-    color: var(--highlight);
-    font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, "Courier New", monospace;
-    font-weight: normal;
-    line-height: normal;
-}
-
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -160,7 +152,7 @@ a:hover {
 .terminal pre {
     color: white;
     font-size: medium;
-    font-family: inherit;
+    font-family: ComicMono;
     margin: 0;
     padding: 0;
     overflow: auto;
@@ -257,18 +249,6 @@ a:hover {
         display: none;
     }
 
-}
-
-#pgp {
-    display: none;
-    /* make double click to select everything work */
-    user-select: all;
-    /* Smaller font size */
-    font-size: 0.8em;
-}
-
-#showPgp:checked ~ #pgp {
-    display: block;
 }
 
 #blinking_cursor::after {
@@ -595,7 +575,7 @@ section {
 #inputThingy input[type="text"], #inputThingy input[type="text"]:focus {
     background-color: #000000;
     color: #fff;
-    font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    font-family: ComicMono;
     border: none;
     outline: none;
     font-size: 16px;
@@ -886,5 +866,14 @@ section {
     background: rgba(0, 0, 0, 0.7);
 }
 body {
-  margin: 0px;
-}
+    margin: 0px;
+  }
+#youtube{
+    filter: grayscale(100%) invert(100%) brightness(150%);
+    }
+   
+    a{
+        font-family: ComicMono;
+        text-decoration: none; 
+        font-size: 15.5px;
+    }
