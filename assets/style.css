@@ -519,29 +519,42 @@ section {
 
 @keyframes cycle {
     0% {
-        content: "welcome to my website\00A0\00A0\00A0\00A0\00A0\00A0";
+        content: "welcome to my website.";
     }
     10% {
-        content: "welcome to my website.\00A0\00A0\00A0\00A0\00A0";
+        content: "welcome to my website.";
     }
     20% {
-        content: "welcome to my website..\00A0\00A0\00A0\00A0";
+        content: "welcome to my website..";
     }
     30% {
-        content: "welcome to my website...\00A0\00A0\00A0";
+        content: "welcome to my website...";
     }
     40% {
-        opacity: 1;
-        content: "welcome to my website...\00A0:\00A0";
+        content: "welcome to my website... :";
     }
     50% {
-        content: "welcome to my website...\00A0:3";
+        content: "welcome to my website... :3";
+    }
+    60% {
+        content: "welcome to my website... :3";
+    }
+    70% {
+        content: "welcome to my website... :";
+    }
+    80% {
+        content: "welcome to my website...";
+    }
+    90% {
+        content: "welcome to my website..";
+    }
+    100% {
+        content: "welcome to my website.";
     }
 }
-
 .cycle::before {
     content: "";
-    animation: cycle steps(1) 5s infinite;
+    animation: cycle steps(10) 5s infinite;
 }
 
 .close {
