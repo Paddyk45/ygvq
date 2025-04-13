@@ -868,9 +868,6 @@ section {
 body {
     margin: 0px;
   }
-#youtube{
-    filter: grayscale(100%) invert(100%) brightness(150%);
-    }
    
     a{
         font-family: ComicMono;
@@ -879,16 +876,4 @@ body {
     }
 0px;
   }
-
-#tiktok{
-    filter: grayscale(100%) invert(100%) brightness(150%);
-}
-
-#twitch{
-    filter: grayscale(100%) invert(100%) brightness(150%);
-    }
-
-#roblox{
-    filter: grayscale(100%) invert(100%) brightness(150%);
-    }
 
