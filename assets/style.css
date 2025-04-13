@@ -877,3 +877,14 @@ body {
         text-decoration: none; 
         font-size: 15.5px;
     }
+0px;
+  }
+#tiktok{
+    filter: grayscale(100%) invert(100%) brightness(150%);
+    }
+   
+    a{
+        font-family: ComicMono;
+        text-decoration: none; 
+        font-size: 15.5px;
+    }
