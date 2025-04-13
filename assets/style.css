@@ -877,3 +877,12 @@ body {
 0px;
   }
 
+#roblox{
+    filter: grayscale(100%) invert(100%) brightness(150%);
+    }
+#youtube{
+    filter: grayscale(100%) invert(100%) brightness(150%);
+    }
+#steam{
+    filter: grayscale(100%) invert(100%) brightness(150%);
+    }
