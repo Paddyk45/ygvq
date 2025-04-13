@@ -876,3 +876,6 @@ body {
     }
 0px;
   }
+#youtube{
+filter: grayscale(100%) invert(100%) brightness(150%);
+}
