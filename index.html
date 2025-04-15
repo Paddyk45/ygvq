@@ -45,23 +45,22 @@
                             <div class="about-image-topbar">
                                 <label for="showImage" class="close"></label>
                             </div>
+                            ygvq.png
+                            <p style="font-size:5px; "> </p>
                             <img src="/assets/me.png" alt="me :3" width="655" height="655">
                         </div>
-                                                <h1><span style="color: #811d81;">he/him</span></h1>
-                        <span style="color: #ec89dc;">hey! im ygvq, im 15 and i do stuff, i enjoy getting no sleep, eating, sleeping and playing games!</span>
+                        <span style="color: #ec89dc;">hey! im ygvq, im <span id="age"></span> and i do stuff, i enjoy getting no sleep, eating, sleeping and playing games!</span>
                         <br><span style="color:#ec89dc;">i kinda know html, kinda not, but im trying ok</span>
-                        <br> <a href="https://discord.com/users/1107041156195418142"><img src="https://lanyard.cnrad.dev/api/1107041156195418142?borderRadius=5px&idleMessage=sleeping%3F&theme=dark" width="300"/></a>
                     </div>
                 </div>
             </section>
             <section id="socials">
- <h1>  </h1>           
- <span style="color: #ec76d9;">i dont have alot of social media<br>
-but:<br></span>
+<p></p>>           
+ <span style="color: #ec76d9;">other stuff:</span><br>
 <span class="prefix">
     <span style="color: #747f8d;">root@<span class="servername">ygvq</span><span class="shortServername">ygvq</span></span>:~<span style="color: #747f8d;">$ </span></span>
-<span class="command">./socials.sh</span>
-<br><span style="color: #965496;">all are links!</span>         
+<span class="command">./links.sh</span>
+<br>><span style="color: #965496;">all are links!</span>         
 <table>
                     <tr>
                         <td>
@@ -94,15 +93,7 @@ but:<br></span>
                         <td><a href="www.tiktok.com/@ygvq_1" target="_blank"><span style="color: #bb67ff;">ygvq_1</span>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>
-                            <img id="twitch" src="/assets/twitch.svg" alt="Twitch logo" width="20" height="20">
-                        </td>
-                        <td><a href="https://m.twitch.tv/itzrealmee" target="_blank"><span style="color: #bb67ff;">itzrealmee</span>
-                        </td>
-                    </tr>
-
+    
                     <tr>
                         <td>
                             <img id="steam" src="/assets/steam.svg" alt="Steam logo" width="20" height="20">
@@ -126,12 +117,12 @@ but:<br></span>
                         <td><a href="https://www.roblox.com/users/8073838821/profile" target="_blank"><span style="color: #bb67ff;">ygvq_1</span>
                         </td>
                     </tr>
-
+    
                     <tr>
                         <td>
-                            <img id="spotify" src="/assets/spotify.svg" alt="Spotufy logo" width="20" height="20">
+                            <img id="twitch" src="/assets/twitch.svg" alt="Twitch logo" width="20" height="20">
                         </td>
-                        <td><a href="https://open.spotify.com/user/31op425wuvb5u2xp3vmglwetbnfe" target="_blank"><span style="color: #bb67ff;">ygvq</span>
+                        <td><a href="https://m.twitch.tv/itzrealmee" target="_blank"><span style="color: #bb67ff;">itzrealmee</span>
                         </td>
                     </tr>
             </table>
@@ -139,16 +130,17 @@ but:<br></span>
             <span class="prefix">
                 <span style="color: #747f8d;">root@<span class="servername">ygvq</span><span class="shortServername">ygvq</span></span>:~<span style="color: #747f8d;">$ </span></span>
             <span class="command">./games.sh</span>
-            <br><span style="color: #965496;">GTA V, Roblox, Minecraft, S1</span>
+            <br>><span style="color: #965496;">GTA V, Roblox, Minecraft, S1</span>
                 <h5></h5>
                 
                 <span class="prefix">
                     <span style="color: #747f8d;">root@<span class="servername">ygvq</span><span class="shortServername">ygvq</span></span>:~<span style="color: #747f8d;">$ </span></span>
                 <span class="command">./thank_you.sh</span>
-                <br><span style="color:#965496">thank you damcraft for letting me take your code legally(dont sue me pls)</span>
+                <br>><span style="color:#965496">thank you damcraft for letting me take your code legally(dont sue me pls)</span>
             <h1>  </h1>
             </div>
         </section>
+        <br>><span style="color:#051e53">175 lines of code :3</span>
         </div>
         <style>
             body {
@@ -164,7 +156,6 @@ but:<br></span>
                 width: 100%;
                 }
                 </style>
-                <h1> </h1>
 </body>
 <div>
     <link rel="stylesheet" href="https://deleox.github.io/Website/ygvq/ShootingStars.css">
@@ -182,4 +173,14 @@ but:<br></span>
         <span class="Star"></span>
         <span class="Star"></span>
     </div>
+    <script type="text/javascript">
+       function calculateAge(birthYear) {
+  const currentYear = new Date().getFullYear();
+  return currentYear - birthYear;
+}
+
+let birthYear = 2010;
+let age = calculateAge(birthYear);
+document.getElementById("age").innerHTML = age;
+        </script>
     </html>
