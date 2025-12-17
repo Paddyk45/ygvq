@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>about_me</title>
 
 <style>
@@ -16,103 +16,118 @@
   --border: rgba(255,255,255,0.08);
 }
 
-* { box-sizing: border-box; cursor: none; }
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  min-height: 100vh;
   background: radial-gradient(1200px 600px at 30% 20%, #101216 0%, var(--bg) 60%);
   color: var(--fg);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  min-height: 100vh;
+  cursor: none; /* FIX: only body, not * */
 }
 
-.frame { min-height: 100vh; padding: 28px; }
+.frame {
+  min-height: 100vh;
+  padding: 28px;
+}
 
 .card {
   position: relative;
   min-height: calc(100vh - 56px);
   border-radius: 18px;
-  padding: 28px 32px 120px; /* reserve space for bottom bar */
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   border: 1px solid var(--border);
-  overflow: hidden;
+  padding: 28px 32px;
 }
 
-/* FLOATING DOTS */
-.dots {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-.dot {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(255,255,255,0.25);
-  border-radius: 50%;
-  animation: float linear infinite;
-}
-@keyframes float {
-  from { transform: translateY(0); opacity: 0; }
-  10% { opacity: 1; }
-  to { transform: translateY(-120vh); opacity: 0; }
-}
-
-/* TOP */
 .top {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 24px;
-  position: relative;
-  z-index: 1;
 }
 
-.left { max-width: 520px; }
+.left {
+  max-width: 520px;
+}
 
 .avatar {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  object-fit: cover;
   border: 1px solid var(--border);
   margin-bottom: 16px;
 }
 
 .headline {
   font-size: 28px;
-  margin: 0 0 6px;
+  line-height: 1.25;
+  margin: 0 0 6px 0;
+  font-weight: 600;
 }
-.green { color: var(--green); }
-.red { color: var(--red); }
 
-.sub { font-size: 14px; color: var(--muted); }
+.headline .green { color: var(--green); }
+.headline .red { color: var(--red); }
 
-.badge {
-  font-size: 11px;
-  padding: 2px 6px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
+.sub {
+  font-size: 14px;
   color: var(--muted);
 }
 
-/* RIGHT */
-.right { text-align: right; min-width: 260px; }
-.block { margin-bottom: 18px; }
-.block-title { font-size: 12px; color: var(--muted); }
-.item { font-size: 13px; }
-.item span { color: var(--muted); font-size: 11px; margin-left: 6px; }
-.item-link { color: inherit; text-decoration: none; }
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  vertical-align: middle;
+}
 
-/* BOTTOM BAR */
-.bottom-bar {
+/* RIGHT COLUMN — THIS WAS THE MAIN ISSUE */
+.right {
+  text-align: right;
+  min-width: 260px;
+}
+
+.block {
+  margin-bottom: 18px;
+}
+
+.block-title {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.item {
+  font-size: 13px;
+  color: var(--fg);
+  margin: 2px 0;
+}
+
+.item span {
+  color: var(--muted);
+  font-size: 11px;
+  margin-left: 6px;
+}
+
+.item-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.item-link:hover {
+  text-decoration: underline;
+}
+
+/* BOTTOM */
+.bottom {
   position: absolute;
   left: 32px;
-  right: 32px;
-  bottom: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  z-index: 1;
+  bottom: 60px; /* FIX: avoid footer overlap */
 }
 
 .music {
@@ -129,9 +144,15 @@ body {
   background: rgba(255,255,255,0.1);
   border-radius: 999px;
   overflow: hidden;
-  margin: 8px 0;
+  margin-bottom: 8px;
 }
-.bar > div { height: 100%; width: 45%; background: white; }
+
+.bar > div {
+  width: 45%;
+  height: 100%;
+  background: white;
+  opacity: 0.8;
+}
 
 .controls {
   display: flex;
@@ -141,6 +162,9 @@ body {
 
 /* FOOTER */
 .footer {
+  position: absolute;
+  right: 32px;
+  bottom: 24px;
   font-size: 11px;
   color: var(--muted);
 }
@@ -150,56 +174,69 @@ body {
   position: fixed;
   width: 12px;
   height: 12px;
-  background: white;
+  background: #fff;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 2147483647;
+  z-index: 999999;
   box-shadow: 0 0 10px rgba(255,255,255,0.9);
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 800px) {
+  .top { grid-template-columns: 1fr; }
+  .right { text-align: left; }
+  .bottom { position: static; margin-top: 32px; }
+  .footer { position: static; margin-top: 16px; }
 }
 </style>
 </head>
 
 <body>
-
 <div class="frame">
   <div class="card">
 
-    <div class="dots"></div>
-
     <div class="top">
       <div class="left">
-        <img src="pfp.png" class="avatar">
+        <img src="pfp.png" class="avatar" />
         <h1 class="headline">
-          Dev,<span class="green">Gamer</span>
-          <span class="badge">he/him</span><br>
-          Cat<span class="red">.</span>
+          Dev,<span class="green">Gamer</span>,
+          <span class="badge">he/him</span><br />
+          Cat<span class="red"></span>.
         </h1>
-        <div class="sub">I do stuff, I like playing games, coding, and yeah</div>
+        <div class="sub">I do stuff, I like playing games, coding, and yeah thats pretty much all</div>
       </div>
 
+      <!-- FIXED RIGHT COLUMN -->
       <div class="right">
         <div class="block">
           <div class="block-title">Projects \\</div>
-          <div class="item">E-gun<span>Unmaintained</span></div>
-          <div class="item"><a href="tsugi.html" class="item-link">Tsugi</a><span>Unreleased</span></div>
+          <div class="item">E-gun - Self defense tool<span>Unmaintained</span></div>
+          <div class="item">
+            <a href="tsugi.html" class="item-link">Tsugi - A minecraft hacked client</a>
+            <span>Unreleased</span>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-title">Social \\</div>
+          <div class="item">[closed]</div>
         </div>
       </div>
     </div>
 
-    <div class="bottom-bar">
+    <div class="bottom">
       <div class="music">
-        <div>Now Playing:</div>
-        <div>Out In Quahog</div>
-        <div style="color:var(--muted)">Lasica</div>
+        <div>Now Playing</div>
         <div class="bar"><div></div></div>
         <div class="controls">
-          <span>&lt;&lt;</span><span>▶</span><span>&gt;&gt;</span>
+          <span>&lt;&lt;</span>
+          <span>▶</span>
+          <span>&gt;&gt;</span>
         </div>
       </div>
-
-      <div class="footer">©2025 ygvq</div>
     </div>
 
+    <div class="footer">©2025 ygvq</div>
   </div>
 </div>
 
@@ -207,22 +244,19 @@ body {
 
 <script>
 const cursor = document.querySelector('.cursor-dot');
+let x = 0, y = 0, tx = 0, ty = 0;
+
 document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top  = e.clientY + 'px';
+  tx = e.clientX;
+  ty = e.clientY;
 });
 
-/* dots */
-const dots = document.querySelector('.dots');
-for (let i = 0; i < 40; i++) {
-  const d = document.createElement('div');
-  d.className = 'dot';
-  d.style.left = Math.random() * 100 + '%';
-  d.style.top = Math.random() * 100 + '%';
-  d.style.animationDuration = 15 + Math.random() * 20 + 's';
-  dots.appendChild(d);
-}
+(function loop() {
+  x += (tx - x) * 0.15;
+  y += (ty - y) * 0.15;
+  cursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+  requestAnimationFrame(loop);
+})();
 </script>
-
 </body>
 </html>
