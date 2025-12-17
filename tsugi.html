@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tsugi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0b0c0e;
+      color: white;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .wrap {
+      max-width: 600px;
+      padding: 40px;
+    }
+
+    .title {
+      font-size: 64px;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+      background: linear-gradient(
+        90deg,
+        #ff4d4d,
+        #ffa64d,
+        #ffff4d,
+        #4dff4d,
+        #4dd2ff,
+        #8c4dff,
+        #ff4dd2
+      );
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 6s linear infinite;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .desc {
+      font-size: 15px;
+      color: #aaa;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      color: #888;
+      font-size: 13px;
+      cursor: not-allowed;
+      user-select: none;
+    }
+    
+* {
+  cursor: none;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  box-shadow: 0 0 10px rgba(255,255,255,0.9);
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: #888;
+  font-size: 13px;
+  cursor: default; /* not clickable */
+  user-select: none;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 class="title">tsugi</h1>
+
+    <div class="desc">
+      Tsugi is a next-generation Minecraft hacked client focused on performance,
+      clean design, and doing things better than everything that came before it.
+      <br>
+      <br>
+      Release date: March 8, 2027
+    </div>
+
+    [UNRELEASED]
+
+
+
+  </div>
+<div class="cursor-dot"></div>
+
+
+<script>
+const cursor = document.querySelector('.cursor-dot');
+let mouseX = 0, mouseY = 0;
+let dotX = 0, dotY = 0;
+const speed = 0.15;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animate() {
+  dotX += (mouseX - dotX) * speed;
+  dotY += (mouseY - dotY) * speed;
+  cursor.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
+
+  
+</body>
+</html>
