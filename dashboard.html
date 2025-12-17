@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>about_me</title>
+<style>
+:root {
+  --bg: #0b0c0e;
+  --fg: #e6e6e6;
+  --muted: #9aa0a6;
+  --green: #6bff8a;
+  --red: #ff5f5f;
+  --card: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+}
+
+* { box-sizing: border-box; cursor: none; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 30% 20%, #101216 0%, var(--bg) 60%);
+  color: var(--fg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.frame { min-height: 100vh; padding: 28px; }
+
+.card {
+  position: relative;
+  min-height: calc(100vh - 56px);
+  border-radius: 18px;
+  padding: 28px 32px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--border);
+}
+
+/* TOP SECTION */
+.top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+}
+
+.left {
+  max-width: 520px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.headline {
+  font-size: 28px;
+  line-height: 1.25;
+  margin: 0 0 6px 0;
+  font-weight: 600;
+}
+.headline .green { color: var(--green); }
+.headline .red { color: var(--red); }
+
+.sub { font-size: 14px; color: var(--muted); }
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  vertical-align: middle;
+}
+
+/* RIGHT SECTION */
+.right {
+  text-align: right;
+  min-width: 260px;
+}
+
+.block { margin-bottom: 18px; }
+
+.block-title { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+
+.item { font-size: 13px; color: var(--fg); margin: 2px 0; }
+
+.item span { color: var(--muted); font-size: 11px; margin-left: 6px; }
+
+.item-link { color: inherit; text-decoration: none; }
+
+.item-link:hover { text-decoration: underline; }
+
+/* BOTTOM LEFT MUSIC PLAYER */
+.bottom {
+  position: absolute;
+  left: 32px;
+  bottom: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.music {
+  width: 260px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.music-title { margin-bottom: 6px; }
+
+.song-info { margin-bottom: 8px; }
+.song-title, .song-artist { font-size: 12px; color: white; }
+
+.bar {
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.bar > div { height: 100%; background: white; opacity: 0.8; }
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+  user-select: none;
+}
+
+/* FOOTER */
+.footer {
+  position: absolute;
+  right: 32px;
+  bottom: 26px;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 800px) {
+  .top { grid-template-columns: 1fr; }
+  .right { text-align: left; }
+  .bottom { position: static; margin-top: 32px; }
+  .footer { position: static; margin-top: 16px; text-align: left; }
+}
+
+/* CURSOR */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  box-shadow: 0 0 10px rgba(255,255,255,0.9);
+  transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <div class="card">
+    <div class="top">
+      <div class="left">
+        <img src="pfp.png" alt="pfp" class="avatar">
+        <h1 class="headline">
+          Dev,<span class="green">Gamer</span>, 
+          <span class="badge">he/him</span><br>
+          Cat<span class="red"></span>.
+        </h1>
+        <div class="sub">I do stuff, I like playing games, coding, anime, and more.</div>
+      </div>
+
+      <div class="right">
+        <div class="block">
+          <div class="block-title">Projects \\</div>
+          <div class="item">E-gun - Self defense tool<span>Unmaintained</span></div>
+          <div class="item"><a href="tsugi.html" class="item-link">Tsugi - Minecraft hacked client</a><span>Unreleased</span></div>
+        </div>
+
+        <div class="block">
+          <div class="block-title">Social \\</div>
+          <div class="item">[closed]</div>
+        </div>
+
+        <div class="block">
+          <div class="block-title">About Me \\</div>
+          <div class="item">Height: 6ft</div>
+          <div class="item">Hobbies: Gaming, coding, anime</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom-left fake music player -->
+    <br>
+    <div class="bottom">
+      <div class="music">
+        <div class="music-title">Now Playing:</div>
+
+        <div class="song-info">
+          <div class="song-title">Out In Quahog</div>
+          <div class="song-artist">Lasica</div>
+        </div>
+
+        <div class="bar"><div style="width:45%;"></div></div>
+
+        <div class="controls">
+          <span>&lt;&lt;</span>
+          <span>▶</span>
+          <span>&gt;&gt;</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">&copy;2025 ygvq</div>
+  </div>
+</div>
+
+<div class="cursor-dot"></div>
+
+<script>
+const cursor = document.querySelector('.cursor-dot');
+let mouseX = 0, mouseY = 0;
+let dotX = 0, dotY = 0;
+const speed = 0.15;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animate() {
+  dotX += (mouseX - dotX) * speed;
+  dotY += (mouseY - dotY) * speed;
+  cursor.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
