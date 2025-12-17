@@ -1,55 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enter</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      color: white;
-      font-family: monospace;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Enter</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+    font-family: monospace;
+  }
 
-    .container {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
+  .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
 
-    .prompt {
-      font-size: 14px;
-      opacity: 0.7;
-    }
+  .prompt {
+    font-size: 14px;
+    opacity: 0.7;
+  }
 
-    .enter-box {
-      border: 2px solid white;
-      padding: 16px 32px;
-      font-size: 18px;
-      animation: blink 2.5s infinite;
-    }
+  .enter-button {
+    border: 2px solid white;
+    padding: 16px 32px;
+    font-size: 18px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    animation: blink 2.5s infinite;
+    user-select: none;
+  }
 
-    @keyframes blink {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0; }
-    }
-  </style>
+  .enter-button:active {
+    background: rgba(255,255,255,0.1);
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+</style>
 </head>
 <body>
   <div class="container">
-    <div class="prompt">press enter to take control</div>
-    <div class="enter-box">[ ENTER ]</div>
+    <div class="prompt">press enter or click the button to take control</div>
+    <button class="enter-button">[ ENTER ]</button>
   </div>
 
   <script>
+    const button = document.querySelector('.enter-button');
+
+    // Mouse / touch click
+    button.addEventListener('click', () => {
+      window.location.href = 'dashboard.html';
+    });
+
+    // Keyboard enter
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         window.location.href = 'dashboard.html';
