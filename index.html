@@ -1,203 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>aboutMe</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/assets/style.css?hash={{ style_hash }}">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enter</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: white;
+      font-family: monospace;
+    }
 
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .prompt {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .enter-box {
+      border: 2px solid white;
+      padding: 16px 32px;
+      font-size: 18px;
+      animation: blink 2.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+  </style>
 </head>
-<body>   
-<div class="wrapper">
-    <div class="terminal-wrapper">
-        <input type="checkbox" id="show-terminal">
-        <div class="secret">
-            <p>
-                u rlly thought sum was back here lol, put it back
-            </p>
-            <label for="show-terminal" class="show-again">ok boomer</label>
-        </div>
-        <div class="terminal">
-            <div class="topbar">
-                <span class="link-bar">
-                    <span class="cycle"></span> || He/Him
-                </span> 
-                <label for="show-terminal" class="close"></label>
-            </div>
-            <div class="content">
-                <section id="welcome">
-                    <pre id="welcomeText">                
-</pre>
-            </section>
-            <section id="about_me" class="nomargin">
-                <span class="prefix">
-                    <span style="color: #747f8d;">
-                        root@<span class="servername">ygvq</span><span class="shortServername">ygvq</span>
-                    </span>:~<span style="color: #747f8d;">$ </span>
-                </span>
-                <span class="command">./aboutme.sh</span>                
-                <div class="content-wrapper">
-                    <img src="/assets/me.png" alt="me :3" class="about-image-separate" width="655" height="655">
-                    <div class="text-content">
-                        <input type="checkbox" id="showImage" style="display: none;" autocomplete="off">
-                        <div class="about-image-inline">
-                            <div class="about-image-topbar">
-                                <label for="showImage" class="close"></label>
-                            </div>
-                            ygvq.png
-                            <p style="font-size:5px; "> </p>
-                            <img src="/assets/me.png" alt="me :3" width="655" height="655">
-                        </div>
-                        <br>
-                        <span style="color: #ec89dc;">hey! im ygvq, im <span id="age"></span> and bleh </span>
-                        <br><span style="color:#ec89dc;">dev, gamer, photographer</span>
-                        <br>
-                        <br>
-                        <br>so as you know from the block of text literally two sentences above me i like gaming, nd i actually host a minecraft server(java only hmu if you want to join)
-                        <br>
-                        <br>
-                        <br>and also i go by "k" now, im not sure how long itll stick but i kinda like it tbh
-                        <br>"Formally ygvq"
-                       
-                    </div>
-                </div>
-            </section>
-            <section id="socials">
-<p></p>>           
- <span style="color: #ec76d9;">other stuff:</span><br>
-<span class="prefix">
-    <span style="color: #747f8d;">root@<span class="servername">ygvq</span><span class="shortServername">ygvq</span></span>:~<span style="color: #747f8d;">$ </span></span>
-<span class="command">./links.sh</span>
-<br>><span style="color: #965496;">all are links :3</span>         
-<table>
-                    <tr>
-                        <td>
-                            <img id="discord" src="/assets/discord.svg" alt="Discord logo" width="20" height="20">
-                        </td>
-                        <td><a href="https://discord.gg/B346WEPVGc" target="_blank"><span style="color: #bb67ff;">ygvq</span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <img id="github" src="/assets/github.svg" alt="GitHub logo" width="20" height="20">
-                        </td>
-                        <td><a href="https://github.com/ItzRealMee" target="_blank"><span style="color: #bb67ff;">ItzRealMee</span>
-                        </td>
-                    </tr>
-                        
-                    <tr>
-                        <td>
-                            <img id="youtube" src="/assets/youtube.svg" alt="YouTube logo" width="20" height="20">
-                        </td>
-                        <td><a href="https://youtube.com/@ygvq" target="_blank"><span style="color: #bb67ff;">ygvq</span>
-                        </td>
-                    </tr>
-    
-                   <tr>
-                        <td>
-                            <img id="tiktok" src="/assets/tiktok.svg" alt="TikTok logo" width="20" height="20">
-                        </td>
-                        <td><a href="https://www.tiktok.com/@ygvq_1?lang=en" target="_blank"><span style="color: #bb67ff;">ygvq_1</span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <img id="steam" src="/assets/steam.svg" alt="Steam logo" width="20" height="20">
-                        </td>
-                        <td><a href="https://steamcommunity.com/profiles/76561199520142128/" target="_blank"><span style="color: #bb67ff;">ygvq</span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <img id="matrix" src="/assets/matrix.svg" alt="Matrix logo" width="16" height="16">
-                        </td>
-                        <td><a href="https://matrix.to/#/@ygvq1:unredacted.org" target="_blank"><span style="color: #bb67ff;">ygvq1</span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                           <img id="roblox" src="/assets/roblox.svg" alt="Roblox logo" width="16" height="16">
-                        </td>
-                        <td><a href="https://www.roblox.com/users/8073838821/profile" target="_blank"><span style="color: #bb67ff;">ygvq_1</span>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>
-                            <img id="twitch" src="/assets/twitch.svg" alt="Twitch logo" width="20" height="20">
-                        </td>
-                        <td><a href="https://m.twitch.tv/itzrealmee" target="_blank"><span style="color: #bb67ff;">itzrealmee</span>
-                        </td>
-                    </tr>
+<body>
+  <div class="container">
+    <div class="prompt">press enter to take control</div>
+    <div class="enter-box">[ ENTER ]</div>
+  </div>
 
-                    <tr>
-                        <td>
-                            <img id="spotify" src="/assets/spotify.svg" alt="Twitch logo" width="20" height="20">
-                        </td>
-                        <td><a href="https://open.spotify.com/user/31op425wuvb5u2xp3vmglwetbnfe?si=5626d1307d104e54" target="_blank"><span style="color: #bb67ff;">ygvq</span>
-                        </td>
-                    </tr>
-            </table>
-            <br>
-            <span class="prefix">
-                <span style="color: #747f8d;">root@<span class="servername">ygvq</span><span class="shortServername">ygvq</span></span>:~<span style="color: #747f8d;">$ </span></span>
-            <span class="command">./games.sh</span>
-            <br>><span style="color: #965496;">GTA V, Roblox, Minecraft, Hitman</span>
-                
-            <br>
-            <br>><span style="color:#053294">233 lines of code :3</span>
-            <br> thank you to all of those who helped me with this site (mainly paddyk45 and damcraft)
-        </div>
-        </section>
-        </div>
-        <style>
-        <style>
-  body {
-    background-color: black;
-    color: white; /* optional, so text is readable */
-  }
-</style>
-            </style>
-            <style>
-            body{
-                height: 100%;
-                width: 100%;
-                }
-                </style>
-                <div>
-
-
-    <link rel="stylesheet" href="https://deleox.github.io/Website/ygvq/ShootingStars.css">
-
-
-    <div id="ShootingStarWrapper" aria-hidden="true">
-
-
-        <span class="Star"></span>
-
-
-        <span class="Star"></span>
-
-
-        <span class="Star"></span>
-    </div>
-    </body>
-    <script type="text/javascript">
-       function calculateAge(birthYear) {
-  const currentYear = new Date().getFullYear();
-  return currentYear - birthYear;
-}
-
-let birthYear = 2010;
-let age = calculateAge(birthYear);
-document.getElementById("age").innerHTML = age;
-        </script>
-       
-    </html>
+  <script>
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        window.location.href = 'dashboard.html';
+      }
+    });
+  </script>
+</body>
+</html>
