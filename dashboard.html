@@ -99,11 +99,137 @@ body {
 /* BOTTOM LEFT MUSIC PLAYER */
 .bottom {
   position: absolute;
+  left: 32px;<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>about_me</title>
+<style>
+:root {
+  --bg: #0b0c0e;
+  --fg: #e6e6e6;
+  --muted: #9aa0a6;
+  --green: #6bff8a;
+  --red: #ff5f5f;
+  --card: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+}
+
+* { box-sizing: border-box; cursor: none; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 30% 20%, #101216 0%, var(--bg) 60%);
+  color: var(--fg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.frame { min-height: 100vh; padding: 28px; }
+
+.card {
+  position: relative;
+  min-height: calc(100vh - 56px);
+  border-radius: 18px;
+  padding: 28px 32px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* FLOATING DOTS */
+.dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 50%;
+  animation: float linear infinite;
+}
+@keyframes float {
+  from { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* TOP SECTION */
+.top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.left {
+  max-width: 520px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.headline {
+  font-size: 28px;
+  line-height: 1.25;
+  margin: 0 0 6px 0;
+  font-weight: 600;
+}
+.headline .green { color: var(--green); }
+.headline .red { color: var(--red); }
+
+.sub { font-size: 14px; color: var(--muted); }
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  vertical-align: middle;
+}
+
+/* RIGHT SECTION */
+.right {
+  text-align: right;
+  min-width: 260px;
+}
+
+.block { margin-bottom: 18px; }
+
+.block-title { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+
+.item { font-size: 13px; color: var(--fg); margin: 2px 0; }
+
+.item span { color: var(--muted); font-size: 11px; margin-left: 6px; }
+
+.item-link { color: inherit; text-decoration: none; }
+
+.item-link:hover { text-decoration: underline; }
+
+/* BOTTOM LEFT MUSIC PLAYER */
+.bottom {
+  position: absolute;
   left: 32px;
   bottom: 24px;
   display: flex;
   gap: 16px;
   align-items: flex-end;
+  z-index: 1;
 }
 
 .music {
@@ -145,6 +271,7 @@ body {
   font-size: 11px;
   color: var(--muted);
   text-align: right;
+  z-index: 1;
 }
 
 /* MEDIA QUERIES */
@@ -175,6 +302,8 @@ body {
 
 <div class="frame">
   <div class="card">
+    <div class="dots"></div>
+
     <div class="top">
       <div class="left">
         <img src="pfp.png" alt="pfp" class="avatar">
@@ -183,7 +312,7 @@ body {
           <span class="badge">he/him</span><br>
           Cat<span class="red"></span>.
         </h1>
-        <div class="sub">I do stuff, I like playing games, coding, anime, and more.</div>
+        <div class="sub">I do stuff, I like playing games, coding, and yeah</div>
       </div>
 
       <div class="right">
@@ -191,6 +320,7 @@ body {
           <div class="block-title">Projects \\</div>
           <div class="item">E-gun - Self defense tool<span>Unmaintained</span></div>
           <div class="item"><a href="tsugi.html" class="item-link">Tsugi - Minecraft hacked client</a><span>Unreleased</span></div>
+          <div class="item">??? - ????????</a><span>Private</span></div>
         </div>
 
         <div class="block">
@@ -201,12 +331,11 @@ body {
         <div class="block">
           <div class="block-title">About Me \\</div>
           <div class="item">Height: 6ft</div>
-          <div class="item">Hobbies: Gaming, coding, anime</div>
+          <div class="item">Hobbies: Gaming, coding, and thats all</div>
         </div>
       </div>
     </div>
 
-    <!-- Bottom-left fake music player -->
     <br>
     <div class="bottom">
       <div class="music">
@@ -251,6 +380,18 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
+
+/* DOT GENERATOR */
+const dots = document.querySelector('.dots');
+for (let i = 0; i < 40; i++) {
+  const d = document.createElement('div');
+  d.className = 'dot';
+  d.style.left = Math.random() * 100 + '%';
+  d.style.top = Math.random() * 100 + '%'; // <-- THIS is the fix
+  d.style.animationDuration = 15 + Math.random() * 20 + 's';
+  d.style.animationDelay = Math.random() * 20 + 's';
+  dots.appendChild(d);
+}
 </script>
 
 </body>
