@@ -282,20 +282,23 @@ body {
   .footer { position: static; margin-top: 16px; text-align: left; }
 }
 
-/* CURSOR */
+* {
+  cursor: none;
+}
+
 .cursor-dot {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  background: #ffffff;
+  width: 10px;
+  height: 10px;
+  background: white;
   border-radius: 50%;
   pointer-events: none;
   z-index: 999999;
   box-shadow: 0 0 10px rgba(255,255,255,0.9);
-  transform: translate(-50%, -50%);
+  left: 0;
+  top: 0;
 }
+
 </style>
 </head>
 <body>
@@ -364,23 +367,32 @@ body {
 
 <script>
 const cursor = document.querySelector('.cursor-dot');
-let mouseX = 0, mouseY = 0;
-let dotX = 0, dotY = 0;
-const speed = 0.15;
+
+let x = window.innerWidth / 2;
+let y = window.innerHeight / 2;
+let tx = x;
+let ty = y;
+
+const speed = 0.18;
 
 document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+  tx = e.clientX;
+  ty = e.clientY;
 });
 
-function animate() {
-  dotX += (mouseX - dotX) * speed;
-  dotY += (mouseY - dotY) * speed;
-  cursor.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
-  requestAnimationFrame(animate);
-}
-animate();
+function loop() {
+  x += (tx - x) * speed;
+  y += (ty - y) * speed;
 
+  cursor.style.left = x + 'px';
+  cursor.style.top  = y + 'px';
+
+  requestAnimationFrame(loop);
+}
+
+loop();
+</script>
+<script>
 /* DOT GENERATOR */
 const dots = document.querySelector('.dots');
 for (let i = 0; i < 40; i++) {
