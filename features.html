@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tsugi — Features</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { cursor: none; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0b0c0e;
+      color: #eaeaea;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 900px;
+      padding: 60px 40px 80px;
+    }
+
+    .title {
+      font-size: 56px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      background: linear-gradient(
+        90deg,
+        #ff4d4d,
+        #ffa64d,
+        #ffff4d,
+        #4dff4d,
+        #4dd2ff,
+        #8c4dff,
+        #ff4dd2
+      );
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 6s linear infinite;
+      text-align: center;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 50px;
+    }
+
+    .module {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.02);
+      overflow: hidden;
+    }
+
+    .module-header {
+      padding: 18px 22px;
+      font-size: 15px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .module-header span {
+      color: #777;
+      transition: transform 0.35s ease;
+    }
+
+    .module.open .module-header span {
+      transform: rotate(45deg);
+    }
+
+    .module-content {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.45s ease;
+    }
+
+    .module-inner {
+      padding: 0 22px 22px;
+      color: #aaa;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .module-inner ul {
+      padding-left: 18px;
+      margin: 12px 0 0;
+    }
+
+    .module-inner li {
+      margin-bottom: 8px;
+    }
+
+    .back {
+      display: block;
+      margin-top: 60px;
+      text-align: center;
+      color: #777;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .back:hover { color: #fff; }
+
+    .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999999;
+      box-shadow: 0 0 10px rgba(255,255,255,0.9);
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <h1 class="title">features</h1>
+  <div class="subtitle">overview of current tsugi modules</div>
+
+  <!-- COMBAT -->
+  <div class="module">
+    <div class="module-header">Combat <span>+</span></div>
+    <div class="module-content">
+      <div class="module-inner">
+        <ul>
+          <li><b>Killaura</b> — Automatically attacks nearby entities.</li>
+          <li><b>TargetStrafe</b> — Circles enemies while attacking.</li>
+          <li><b>Criticals</b> — Forces critical hits via packet manipulation.</li>
+          <li><b>Triggerbot</b> — Attacks automatically when crosshair is on a target.</li>
+          <li><b>Velocity</b> — Reduces or cancels knockback.</li>
+          <li><b>Reach</b> — Extends attack distance.</li>
+          <li><b>AutoClicker</b> — Clicks automatically at set CPS.</li>
+          <li><b>AutoTotem</b> — Automatically equips Totem of Undying.</li>
+          <li><b>HitBoxes</b> — Enlarges entity hitboxes.</li>
+          <li><b>BowAimbot</b> — Automatically aims bows.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOVEMENT -->
+  <div class="module">
+    <div class="module-header">Movement <span>+</span></div>
+    <div class="module-content">
+      <div class="module-inner">
+        <ul>
+          <li><b>Fly</b> — Enables flight using multiple modes.</li>
+          <li><b>Speed</b> — Boosts movement speed.</li>
+          <li><b>BHop</b> — Bunny hopping for momentum.</li>
+          <li><b>LongJump</b> — Extended jump distance.</li>
+          <li><b>Step</b> — Walk up full blocks</li>
+          <li><b>NoSlow</b> — Prevents slowdown while using items.</li>
+          <li><b>Jesus</b> — Walk on water or liquids.</li>
+          <li><b>Spider</b> — Climb walls.</li>
+          <li><b>FastFall</b> — Fall faster than normal.</li>
+          <li><b>SafeWalk</b> — Prevents walking off edges.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- RENDER -->
+  <div class="module">
+    <div class="module-header">Render <span>+</span></div>
+    <div class="module-content">
+      <div class="module-inner">
+        <ul>
+          <li><b>ESP</b> — Shows entities through walls.</li>
+          <li><b>ChestESP</b> — Highlights storage blocks.</li>
+          <li><b>XRay</b> — Reveals valuable blocks.</li>
+          <li><b>Fullbright</b> — Maximum brightness.</li>
+          <li><b>Nametags</b> — Enhanced name tag rendering.</li>
+          <li><b>Tracers</b> — Lines pointing to entities.</li>
+          <li><b>Chams</b> — Solid-colored entity models.</li>
+          <li><b>NoRender</b> — Disable selected visual effects.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAYER -->
+  <div class="module">
+    <div class="module-header">Player <span>+</span></div>
+    <div class="module-content">
+      <div class="module-inner">
+        <ul>
+          <li><b>AutoArmor</b> — Automatically equips armor.</li>
+          <li><b>FastUse</b> — Faster item usage.</li>
+          <li><b>NoFall</b> — Prevents fall damage.</li>
+          <li><b>Regen</b> — Faster health regeneration.</li>
+          <li><b>InventoryMove</b> — Move while inventory is open.</li>
+          <li><b>AntiAFK</b> — Prevents AFK kicks.</li>
+          <li><b>AutoEat</b> — Eats when hungry.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORLD -->
+  <div class="module">
+    <div class="module-header">World <span>+</span></div>
+    <div class="module-content">
+      <div class="module-inner">
+        <ul>
+          <li><b>Scaffold</b> — Places blocks automatically.</li>
+          <li><b>Nuker</b> — Breaks blocks in an area.</li>
+          <li><b>ChestStealer</b> — Quickly loots chests.</li>
+          <li><b>AutoMine</b> — Mines selected blocks.</li>
+          <li><b>FastBreak</b> — Break blocks faster.</li>
+          <li><b>Timer</b> — Speeds up client tick rate.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISC -->
+  <div class="module">
+    <div class="module-header">Misc <span>+</span></div>
+    <div class="module-content">
+      <div class="module-inner">
+        <ul>
+          <li><b>HUD</b> — Custom on-screen display.</li>
+          <li><b>ClickGUI</b> — Graphical module configuration.</li>
+          <li><b>Macros</b> — Keybound actions.</li>
+          <li><b>AutoReconnect</b> — Rejoin servers automatically.</li>
+          <li><b>ChatTweaks</b> — Chat enhancements.</li>
+          <li><b>Notifications</b> — On-screen alerts.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="back">← back</a>
+</div>
+
+<div class="cursor-dot"></div>
+
+<script>
+  document.querySelectorAll('.module').forEach(module => {
+    const header = module.querySelector('.module-header');
+    const content = module.querySelector('.module-content');
+
+    header.addEventListener('click', () => {
+      const open = module.classList.contains('open');
+      if (open) {
+        content.style.height = content.scrollHeight + 'px';
+        requestAnimationFrame(() => content.style.height = '0px');
+        module.classList.remove('open');
+      } else {
+        module.classList.add('open');
+        content.style.height = content.scrollHeight + 'px';
+      }
+    });
+
+    content.addEventListener('transitionend', () => {
+      if (module.classList.contains('open')) {
+        content.style.height = 'auto';
+      }
+    });
+  });
+
+  const cursor = document.querySelector('.cursor-dot');
+  let mx = 0, my = 0, dx = 0, dy = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+  });
+
+  function animate() {
+    dx += (mx - dx) * 0.15;
+    dy += (my - dy) * 0.15;
+    cursor.style.transform =
+      `translate(${dx}px, ${dy}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
+
+</body>
+</html>
