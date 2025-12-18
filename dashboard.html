@@ -15,7 +15,20 @@
   --border: rgba(255,255,255,0.08);
 }
 
-* { box-sizing: border-box; cursor: none; }
+/* FORCE NO SYSTEM CURSOR ANYWHERE */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+a,
+a:hover,
+a:active,
+a:focus {
+  cursor: none !important;
+}
 
 body {
   margin: 0;
@@ -67,9 +80,7 @@ body {
   z-index: 1;
 }
 
-.left {
-  max-width: 520px;
-}
+.left { max-width: 520px; }
 
 .avatar {
   width: 44px;
@@ -116,9 +127,14 @@ body {
 
 .item span { color: var(--muted); font-size: 11px; margin-left: 6px; }
 
-.item-link { color: inherit; text-decoration: none; }
+.item-link {
+  color: inherit;
+  text-decoration: none;
+}
 
-.item-link:hover { text-decoration: underline; }
+.item-link:hover {
+  text-decoration: underline;
+}
 
 /* BOTTOM LEFT MUSIC PLAYER */
 .bottom {
@@ -181,7 +197,7 @@ body {
   .footer { position: static; margin-top: 16px; text-align: left; }
 }
 
-/* CURSOR */
+/* CUSTOM CURSOR */
 .cursor-dot {
   position: fixed;
   top: 0;
@@ -207,7 +223,7 @@ body {
       <div class="left">
         <img src="pfp.png" alt="pfp" class="avatar">
         <h1 class="headline">
-          Dev,<span class="green">Gamer</span>, 
+          Dev,<span class="green">Gamer</span>,
           <span class="badge">he/him</span><br>
           Cat<span class="red"></span>.
         </h1>
@@ -218,8 +234,11 @@ body {
         <div class="block">
           <div class="block-title">Projects \\</div>
           <div class="item">E-gun - Self defense tool<span>Unmaintained</span></div>
-          <div class="item"><a href="tsugi.html" class="item-link">Tsugi - Minecraft hacked client</a><span>Unreleased</span></div>
-          <div class="item">ftc - Website</a><span>Active</span></div>
+          <div class="item">
+            <a href="tsugi.html" class="item-link">Tsugi - Minecraft hacked client</a>
+            <span>Unreleased</span>
+          </div>
+          <div class="item">ftc - Website<span>Active</span></div>
         </div>
 
         <div class="block">
@@ -235,14 +254,13 @@ body {
       </div>
     </div>
 
-    <br>
     <div class="bottom">
       <div class="music">
         <div class="music-title">Now Playing:</div>
 
         <div class="song-info">
           <div class="song-title">Art Of Guitar</div>
-          <div class="song-artist">RJ Pasin & Marcin</div>
+          <div class="song-artist">RJ Pasin &amp; Marcin</div>
         </div>
 
         <div class="bar"><div style="width:90%;"></div></div>
@@ -275,7 +293,8 @@ document.addEventListener('mousemove', e => {
 function animate() {
   dotX += (mouseX - dotX) * speed;
   dotY += (mouseY - dotY) * speed;
-  cursor.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+  cursor.style.transform =
+    `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
   requestAnimationFrame(animate);
 }
 animate();
