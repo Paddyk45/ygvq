@@ -15,7 +15,7 @@
   --border: rgba(255,255,255,0.08);
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; cursor: none; }
 
 body {
   margin: 0;
@@ -23,7 +23,6 @@ body {
   background: radial-gradient(1200px 600px at 30% 20%, #101216 0%, var(--bg) 60%);
   color: var(--fg);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  cursor: none;
 }
 
 .frame { min-height: 100vh; padding: 28px; }
@@ -220,7 +219,7 @@ body {
           <div class="block-title">Projects \\</div>
           <div class="item">E-gun - Self defense tool<span>Unmaintained</span></div>
           <div class="item"><a href="tsugi.html" class="item-link">Tsugi - Minecraft hacked client</a><span>Unreleased</span></div>
-          <div class="item">??? - ????????</a><span>Private</span></div>
+          <div class="item">ftc - Website</a><span>Active</span></div>
         </div>
 
         <div class="block">
@@ -242,11 +241,11 @@ body {
         <div class="music-title">Now Playing:</div>
 
         <div class="song-info">
-          <div class="song-title">Out In Quahog</div>
-          <div class="song-artist">Lasica</div>
+          <div class="song-title">Art Of Guitar</div>
+          <div class="song-artist">RJ Pasin & Marcin</div>
         </div>
 
-        <div class="bar"><div style="width:45%;"></div></div>
+        <div class="bar"><div style="width:90%;"></div></div>
 
         <div class="controls">
           <span>&lt;&lt;</span>
@@ -280,18 +279,6 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
-
-/* DOT GENERATOR */
-const dots = document.querySelector('.dots');
-for (let i = 0; i < 40; i++) {
-  const d = document.createElement('div');
-  d.className = 'dot';
-  d.style.left = Math.random() * 100 + '%';
-  d.style.top = Math.random() * 100 + '%'; // <-- THIS is the fix
-  d.style.animationDuration = 15 + Math.random() * 20 + 's';
-  d.style.animationDelay = Math.random() * 20 + 's';
-  dots.appendChild(d);
-}
 </script>
 
 </body>
