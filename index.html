@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Enter</title>
 <style>
+  /* FORCE HIDE SYSTEM CURSOR EVERYWHERE */
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+    box-sizing: border-box;
+  }
+
   html, body {
     margin: 0;
     padding: 0;
@@ -35,9 +43,8 @@
     font-size: 18px;
     background: transparent;
     color: white;
-    cursor: pointer;
-    animation: blink 2.5s infinite;
     user-select: none;
+    animation: blink 2.5s infinite;
   }
 
   .enter-button:active {
@@ -48,6 +55,21 @@
     0%, 50%, 100% { opacity: 1; }
     25%, 75% { opacity: 0; }
   }
+
+  /* CUSTOM CURSOR DOT */
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    box-shadow: 0 0 10px rgba(255,255,255,0.9);
+    transform: translate(-50%, -50%);
+  }
 </style>
 </head>
 <body>
@@ -56,20 +78,40 @@
     <button class="enter-button">[ ENTER ]</button>
   </div>
 
+  <div class="cursor-dot"></div>
+
   <script>
     const button = document.querySelector('.enter-button');
 
-    // Mouse / touch click
     button.addEventListener('click', () => {
       window.location.href = 'dashboard.html';
     });
 
-    // Keyboard enter
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         window.location.href = 'dashboard.html';
       }
     });
+
+    /* SMOOTH CUSTOM CURSOR */
+    const cursor = document.querySelector('.cursor-dot');
+    let mouseX = 0, mouseY = 0;
+    let dotX = 0, dotY = 0;
+    const speed = 0.15;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      dotX += (mouseX - dotX) * speed;
+      dotY += (mouseY - dotY) * speed;
+      cursor.style.transform =
+        `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
   </script>
 </body>
 </html>
