@@ -38,13 +38,18 @@ body {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-.frame { min-height: 100vh; padding: 28px; }
+.frame { 
+  min-height: 100vh; 
+  padding: 28px;
+  position: relative;
+}
 
 .card {
   position: relative;
   min-height: calc(100vh - 56px);
   border-radius: 18px;
   padding: 28px 32px;
+  padding-bottom: 80px; /* Give space at the bottom to avoid footer overlap */
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   border: 1px solid var(--border);
   overflow: hidden;
@@ -140,7 +145,7 @@ body {
 .bottom {
   position: absolute;
   left: 32px;
-  bottom: 24px;
+  bottom: 32px; /* Space from the bottom */
   display: flex;
   gap: 16px;
   align-items: flex-end;
@@ -180,9 +185,9 @@ body {
 
 /* FOOTER */
 .footer {
-  position: absolute;
+  position: absolute; /* Position inside frame */
   right: 32px;
-  bottom: 26px;
+  bottom: 16px;
   font-size: 11px;
   color: var(--muted);
   text-align: right;
@@ -234,12 +239,16 @@ body {
         <div class="block">
           <div class="block-title">Projects \\</div>
           <div class="item">E-gun - Self defense tool<span>Unmaintained</span></div>
+          <div class="item">Linux BattleEye Hotfix<span>Private</span></div>
+          <div class="item">
+            <a href="bzo.html" class="item-link">Bravo Zero One</a>
+            <span>Unreleased</span>
+          </div>
           <div class="item">
             <a href="tsugi.html" class="item-link">Tsugi - Minecraft hacked client</a>
             <span>Unreleased</span>
           </div>
           <div class="item">ftc - Website<span>Active</span></div>
-          <div class="item">Linux Battleye Hotfix<span>Private</span></div>
         </div>
 
         <div class="block">
