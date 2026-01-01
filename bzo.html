@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brazo Zero One</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at bottom, #0b0c0e 0%, #050506 100%);
+      color: #eee;
+      font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      position: relative; /* For smoke to sit correctly */
+    }
+
+    /* Smoke effect */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background-image: url("https://i.imgur.com/4Vg2pLz.png");
+      background-repeat: repeat;
+      opacity: 0.08;  /* Slightly more subtle smoke */
+      filter: blur(30px);  /* Makes the smoke feel softer */
+      animation: smoke 120s linear infinite;
+      pointer-events: none;
+      z-index: -1;  /* Behind the content */
+    }
+
+    @keyframes smoke {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(100px, -50px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    /* Title */
+    .title {
+      font-size: 72px;
+      font-weight: 800;
+      margin: 0 0 24px 0;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #ff4d4d, #ffa64d, #ffff4d, #4dff4d, #4dd2ff, #8c4dff, #ff4dd2);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 6s linear infinite;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* Description */
+    .desc {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 32px;
+      line-height: 1.7;
+      max-width: 650px;
+      padding: 0 15px;
+    }
+
+    .status {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 28px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Features Link */
+    .feature-link {
+      position: relative;
+      display: inline-block;
+      font-size: 14px;
+      color: #bbb;
+      text-decoration: none;
+      padding: 10px 25px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .feature-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #ff4d4d, #ffa64d, #ffff4d, #4dff4d, #4dd2ff, #8c4dff, #ff4dd2);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    .feature-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .feature-link:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    /* Custom Cursor */
+    * {
+      cursor: none;
+    }
+
+    .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background: #ffffff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999999;
+      box-shadow: 0 0 25px rgba(255,255,255,0.9);
+      transform: translate(-50%, -50%);
+      transition: all 0.1s ease;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 54px;
+      }
+      .desc {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <h1 class="title">Brazo Zero One</h1>
+
+    <div class="desc">
+      Brazo Zero One is a RTS shooter where tactical skill meets high-speed combat.  
+      Customize extreme weapons, master wallrunning and advanced movement, and lead your squad to victory.
+      Take control as highly skilled unit bravo zero and dominate the battlefeild 
+      <br><br>
+      Release date: TBA
+    </div>
+
+    <div class="status">[UNRELEASED]</div>
+
+    <a href="bzof.html" class="feature-link">view features</a>
+  </div>
+
+  <div class="cursor-dot"></div>
+
+  <script>
+    const cursor = document.querySelector('.cursor-dot');
+    let mouseX = 0, mouseY = 0;
+    let dotX = 0, dotY = 0;
+    const speed = 0.15;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      dotX += (mouseX - dotX) * speed;
+      dotY += (mouseY - dotY) * speed;
+      cursor.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+</body>
+</html>

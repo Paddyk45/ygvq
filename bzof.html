@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brazo Zero One - Features</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at bottom, #0b0c0e 0%, #050506 100%);
+      color: #eee;
+      font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: url('https://i.imgur.com/4Vg2pLz.png') repeat;
+      opacity: 0.05;
+      animation: moveSmoke 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveSmoke {
+      0% { transform: translate(0,0); }
+      100% { transform: translate(50px,50px); }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, #ff4d4d, #ffa64d, #ffff4d, #4dff4d, #4dd2ff, #8c4dff, #ff4dd2);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 6s linear infinite;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .feature-card {
+      background: rgba(20, 22, 25, 0.85);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-left: 4px solid #ff4d4d;
+      padding: 20px 25px;
+      margin-bottom: 20px;
+      text-align: left;
+      transition: transform 0.3s ease, border-left-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateX(10px);
+      border-left-color: #4dd2ff;
+      box-shadow: 0 4px 30px rgba(0, 255, 255, 0.15);
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .feature-desc {
+      font-size: 15px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .back-link {
+      margin-top: 40px;
+      display: inline-block;
+      font-size: 14px;
+      color: #bbb;
+      text-decoration: none;
+      padding: 10px 25px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    /* CUSTOM CURSOR */
+    * {
+      cursor: none;
+    }
+
+    .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background: #ffffff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999999;
+      box-shadow: 0 0 20px rgba(255,255,255,0.9);
+      transform: translate(-50%, -50%);
+    }
+
+    /* Message Module (Like a feature card) */
+    .message-card {
+      background: rgba(30, 30, 30, 0.85);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-left: 4px solid #4dd2ff;
+      padding: 20px 25px;
+      margin-bottom: 20px;
+      text-align: left;
+      transition: transform 0.3s ease, border-left-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .message-card:hover {
+      transform: translateX(10px);
+      border-left-color: #ff4dd2;
+      box-shadow: 0 4px 30px rgba(0, 255, 255, 0.15);
+    }
+
+    .message-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .message-desc {
+      font-size: 15px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 48px;
+      }
+      .feature-title, .message-title {
+        font-size: 16px;
+      }
+      .feature-desc, .message-desc {
+        font-size: 14px;
+      }
+      .message-card {
+        font-size: 18px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <h1 class="title">Features</h1>
+
+    <!-- Feature Cards -->
+    <div class="feature-card">
+      <div class="feature-title">Extensive Gun Customization</div>
+      <div class="feature-desc">
+        Modify weapons beyond realism. Imagine .50 BMG in a Deagle, Every gun can be tailored for unpredictable combat and unique loadouts.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Advanced Movement System</div>
+      <div class="feature-desc">
+        Master wallrunning, slide-cancelling, and quad movement to navigate vertical and horizontal combat arenas like a pro.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Adrenaline Injectors</div>
+      <div class="feature-desc">
+        Temporarily boost speed, extend wallruns, or gain other combat advantages to control the battlefield in battle-heavy moments.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">RTS-Inspired Gameplay</div>
+      <div class="feature-desc">
+        Issue commands to squads in real time, coordinate strikes, and combine strategy with fast-paced action for tactical encounters.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Futuristic + Classic Weapons</div>
+      <div class="feature-desc">
+        Fight with weapons from all eras in a futuristic battlefield. Classic firepower meets mordern tech in every encounter.
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Accurate Melee Combat</div>
+      <div class="feature-desc">
+        Engage in close-quarters combat with precise timing and skill-based melee mechanics.
+      </div>
+    </div>
+
+     <div class="feature-card">
+      <div class="feature-title">Be cautious</div>
+      <div class="feature-desc">
+        Death could be around the next corner, its not your gun if youre dead
+      </div>
+    </div>
+
+    <a href="dashboard.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <div class="cursor-dot"></div>
+
+  <script>
+    const cursor = document.querySelector('.cursor-dot');
+    let mouseX = 0, mouseY = 0;
+    let dotX = 0, dotY = 0;
+    const speed = 0.15;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      dotX += (mouseX - dotX) * speed;
+      dotY += (mouseY - dotY) * speed;
+      cursor.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+</body>
+</html>
