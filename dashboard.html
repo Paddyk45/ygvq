@@ -15,7 +15,6 @@
   --border: rgba(255,255,255,0.08);
 }
 
-/* FORCE NO SYSTEM CURSOR ANYWHERE */
 *,
 *::before,
 *::after {
@@ -49,13 +48,13 @@ body {
   min-height: calc(100vh - 56px);
   border-radius: 18px;
   padding: 28px 32px;
-  padding-bottom: 80px; /* Give space at the bottom to avoid footer overlap */
+  padding-bottom: 80px; 
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   border: 1px solid var(--border);
   overflow: hidden;
 }
 
-/* FLOATING DOTS */
+
 .dots {
   position: absolute;
   inset: 0;
@@ -76,7 +75,7 @@ body {
   to { transform: translateY(-120vh); opacity: 0; }
 }
 
-/* TOP SECTION */
+
 .top {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -118,7 +117,7 @@ body {
   vertical-align: middle;
 }
 
-/* RIGHT SECTION */
+
 .right {
   text-align: right;
   min-width: 260px;
@@ -141,11 +140,11 @@ body {
   text-decoration: underline;
 }
 
-/* BOTTOM LEFT MUSIC PLAYER */
+
 .bottom {
   position: absolute;
   left: 32px;
-  bottom: 32px; /* Space from the bottom */
+  bottom: 32px;
   display: flex;
   gap: 16px;
   align-items: flex-end;
@@ -183,9 +182,9 @@ body {
   user-select: none;
 }
 
-/* FOOTER */
+
 .footer {
-  position: absolute; /* Position inside frame */
+  position: absolute; 
   right: 32px;
   bottom: 16px;
   font-size: 11px;
@@ -194,7 +193,7 @@ body {
   z-index: 1;
 }
 
-/* MEDIA QUERIES */
+
 @media (max-width: 800px) {
   .top { grid-template-columns: 1fr; }
   .right { text-align: left; }
@@ -202,7 +201,7 @@ body {
   .footer { position: static; margin-top: 16px; text-align: left; }
 }
 
-/* CUSTOM CURSOR */
+
 .cursor-dot {
   position: fixed;
   top: 0;
