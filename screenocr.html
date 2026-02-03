@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ScreenOCR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --bg: #0b0c0e;
+      --fg: #e6e6e6;
+      --muted: #9aa0a6;
+      --border: rgba(255,255,255,0.08);
+      --accent: linear-gradient(
+        90deg,
+        #6bff8a,
+        #4dd2ff,
+        #8c4dff
+      );
+    }
+
+    * {
+      box-sizing: border-box;
+      cursor: none;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(1200px 600px at 30% 20%, #101216 0%, var(--bg) 60%);
+      color: var(--fg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrap {
+      max-width: 720px;
+      padding: 48px;
+      text-align: left;
+    }
+
+    .title {
+      font-size: 56px;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      background: var(--accent);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shift 6s linear infinite;
+    }
+
+    @keyframes shift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+    }
+
+    .text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--fg);
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      font-size: 13px;
+      color: var(--fg);
+    }
+
+    li {
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 36px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* custom cursor */
+    .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      background: #ffffff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 999999;
+      box-shadow: 0 0 10px rgba(255,255,255,0.9);
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <h1 class="title">ScreenOCR</h1>
+
+    <div class="subtitle">
+      ScreenOCR is a lightweight Windows tool that lets you select part of your screen
+      and instantly copy detected text to your clipboard.
+      <br><br>
+      No internet. No accounts. No background services.
+      It runs, it copies, it leaves.
+    </div>
+
+    <div class="section">
+      <div class="section-title">OVERVIEW</div>
+      <div class="text">
+        ScreenOCR automatically cleans up OCR output, but switches to raw text
+        when it detects heavy symbol usage like math.
+        <br><br>
+        It is fully offline. Tesseract is bundled so nothing else is required.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">DOWNLOAD</div>
+      <div class="text">
+        The executable is about 1.3 GB because Tesseract is fully bundled.
+        Yes, it’s big. No, there is no smaller magic version right now.
+      </div>
+      <div class="links" style="margin-top:10px;">
+        <a href="https://drive.google.com/file/d/12fZ5wsnAfdoppdTYvBCjqweBasHR-SRV/view">Google Drive</a>
+        <a href="https://github.com/ItzRealMee/ScreenOCR">GitHub</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">KNOWN ISSUES</div>
+      <ul>
+        <li>Startup may feel slow on first launch</li>
+        <li>OCR accuracy depends on font, resolution, and contrast</li>
+        <li>Very small selections may return no text</li>
+        <li>Complex layouts and images are not handled well</li>
+        <li>Math and symbol-heavy content may still be inaccurate</li>
+        <li>Windows only. Other platforms untested</li>
+        <li>Some antivirus software may flag it as a false positive</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title">TOOLS USED</div>
+      <div class="text">Python · Tesseract · PyInstaller</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">DEMO</div>
+      <div class="links">
+        <a href="https://www.youtube.com/watch?v=8s86Tns3-yo">YouTube Demo</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      Brought to you by ygvq<br>
+      It is not perfect. It still works.
+    </div>
+  </div>
+
+  <div class="cursor-dot"></div>
+
+  <script>
+    const cursor = document.querySelector('.cursor-dot');
+    let mouseX = 0, mouseY = 0;
+    let dotX = 0, dotY = 0;
+    const speed = 0.15;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      dotX += (mouseX - dotX) * speed;
+      dotY += (mouseY - dotY) * speed;
+      cursor.style.transform =
+        `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+</body>
+</html>
