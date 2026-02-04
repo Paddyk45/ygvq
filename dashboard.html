@@ -189,16 +189,18 @@
       user-select: none;
     }
 
-    /* FOOTER */
-    .footer {
-      position: absolute;
-      right: 32px;
-      bottom: 16px;
-      font-size: 11px;
-      color: var(--muted);
-      text-align: right;
-      z-index: 1;
-    }
+    /* FOOTER FIXED INSIDE CARD */
+ .footer {
+  position: absolute;
+  right: 32px;       /* distance from the right edge of the card */
+  bottom: 16px;      /* distance from the bottom of the card */
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+  z-index: 1;
+}
+
+
 
     /* MEDIA QUERIES */
     @media (max-width: 800px) {
@@ -275,15 +277,10 @@
             <div class="song-artist">RJ Pasin &amp; Marcin</div>
           </div>
           <div class="bar"><div style="width:90%;"></div></div>
-          <div class="controls">
-            <span>&lt;&lt;</span>
-            <span>▶</span>
-            <span>&gt;&gt;</span>
-          </div>
         </div>
       </div>
 
-      <div class="footer">&copy;2025 ygvq</div>
+      <div class="footer">&copy;2026 ygvq</div>
     </div>
   </div>
 
@@ -311,3 +308,4 @@
   </script>
 </body>
 </html>
+
