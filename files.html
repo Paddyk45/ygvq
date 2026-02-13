@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redirecting…</title>
+
+<!-- HTML meta refresh redirect -->
+<meta http-equiv="refresh" content="0; URL='https://your-cloudflare-url.trycloudflare.com'">
+
+<style>
+  :root {
+    --bg: #0b0c0e;
+    --fg: #e6e6e6;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-monospace, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px;
+    border-radius: 16px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    Redirecting to your private archive…
+  </div>
+
+  <!-- Fallback JS redirect in case meta refresh fails -->
+  <script>
+    window.location.href = "https://your-cloudflare-url.trycloudflare.com";
+  </script>
+</body>
+</html>
