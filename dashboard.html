@@ -74,13 +74,12 @@
     }
 
     /* TOP SECTION */
-   .top {
+.top {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 24px;
   position: relative;
   z-index: 1;
-  flex: 1;
 }
 
 .bottom {
@@ -155,15 +154,27 @@
     .item-link:hover { text-decoration: underline; }
 
     /* BOTTOM LEFT MUSIC PLAYER */
-    .bottom {
-      position: absolute;
-      left: 32px;
-      bottom: 32px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-end;
-      z-index: 1;
-    }
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.bottom {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  z-index: 1;
+}
+
+.footer {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+  z-index: 1;
+}
 
     .music {
       width: 260px;
@@ -197,15 +208,6 @@
       font-size: 12px;
       user-select: none;
     }
-
-    /* FOOTER FIXED INSIDE CARD */
-.footer {
-  font-size: 11px;
-  color: var(--muted);
-  text-align: right;
-  z-index: 1;
-  margin-top: 8px;
-}
 
 
 
@@ -281,16 +283,20 @@
         </div>
       </div>
 
-      <div class="bottom">
-        <div class="music">
-          <div class="music-title">Now Playing:</div>
-          <div class="song-info">
-            <div class="song-title">WASHED</div>
-            <div class="song-artist">Elevation Rythm</div>
-          </div>
-          <div class="bar"><div style="width:90%;"></div></div>
-        </div>
+ <div class="bottom-row">
+  <div class="bottom">
+    <div class="music">
+      <div class="music-title">Now Playing:</div>
+      <div class="song-info">
+        <div class="song-title">WASHED</div>
+        <div class="song-artist">Elevation Rythm</div>
       </div>
+      <div class="bar"><div style="width:90%;"></div></div>
+    </div>
+  </div>
+
+  <div class="footer">&copy;2026 ygvq</div>
+</div>
 
       <div class="footer">&copy;2026 ygvq</div>
     </div>
