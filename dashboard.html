@@ -39,15 +39,16 @@
     }
 
     .card {
-      position: relative;
-      min-height: calc(100vh - 56px);
-      border-radius: 18px;
-      padding: 28px 32px;
-      padding-bottom: 80px; /* space at bottom for footer & music */
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
+  position: relative;
+  min-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  padding: 28px 32px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
 
     /* FLOATING DOTS */
     .dots {
@@ -73,13 +74,22 @@
     }
 
     /* TOP SECTION */
-    .top {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      position: relative;
-      z-index: 1;
-    }
+   .top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.bottom {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  z-index: 1;
+  margin-top: 24px;
+}
 
     .left { max-width: 520px; }
 
@@ -189,25 +199,22 @@
     }
 
     /* FOOTER FIXED INSIDE CARD */
- .footer {
-  position: absolute;
-  right: 32px;       /* distance from the right edge of the card */
-  bottom: 16px;      /* distance from the bottom of the card */
+.footer {
   font-size: 11px;
   color: var(--muted);
   text-align: right;
   z-index: 1;
+  margin-top: 8px;
 }
 
 
 
     /* MEDIA QUERIES */
-    @media (max-width: 800px) {
-      .top { grid-template-columns: 1fr; }
-      .right { text-align: left; }
-      .bottom { position: static; margin-top: 32px; }
-      .footer { position: static; margin-top: 16px; text-align: left; }
-    }
+ @media (max-width: 800px) {
+  .top { grid-template-columns: 1fr; }
+  .right { text-align: left; }
+  .footer { text-align: left; }
+}
 
     /* CUSTOM CURSOR */
     .cursor-dot {
